@@ -1,4 +1,11 @@
 import { UserButton, auth } from "@clerk/nextjs";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  SignInButton,
+} from "@clerk/nextjs";
+
 import { redirect } from "next/navigation";
 
 import StoreSwitcher from "@/components/store-switcher";
@@ -26,7 +33,18 @@ const Navbar = async () => {
         <MainNav className="mx-6" />
         <div className="ml-auto flex items-center space-x-4">
           <ThemeToggle />
-          <UserButton afterSignOutUrl="/" />
+                <SignedIn>
+          <UserButton 
+          afterSignOutUrl="/" 
+          //  userProfileMode="navigation"
+          //   userProfileUrl={
+          //   typeof window !== "undefined"
+          //     ? `${window.location.origin}/profile`
+          //     : undefined
+            // }
+            />
+                  </SignedIn>
+           
         </div>
       </div>
     </div>
