@@ -20,7 +20,21 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+    appearance={
+        {
+        layout: {
+          helpPageUrl: "https://clerk.com/support",
+          logoImageUrl: "https://clerk.com/logo.png",
+          logoPlacement: "inside",
+          privacyPageUrl: "https://clerk.com/privacy",
+          showOptionalFields: true,
+          socialButtonsPlacement: "bottom",
+          socialButtonsVariant: "iconButton",
+          termsPageUrl: "https://clerk.com/terms",
+            }
+        }
+      }>
       <html lang="en">
         <body className={inter.className}>
           <ThemeProvider 
